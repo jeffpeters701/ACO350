@@ -1,4 +1,4 @@
-// Compile with gcc -pthread -lm <source.c> -o <executable>
+
 
 #include <pthread.h>
 #include <stdio.h>
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
       return 2;
     }
 
-  // TO DO: How many threads will there be?
+ 
   int num_threads = row_a * col_b;
 
   pthread_t tids[num_threads];
@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 
   pthread_attr_init(&attr);
 
-  // TO DO: Create the threads.
+
   int thread_idx = 0;
   for (int y = 0; y < col_b; y++)
     {
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
         }
     }
 
-  // TO DO: wait for all the threads to complete.
+
   for (int i = 0; i < num_threads; i++) pthread_join(tids[i], NULL);
 
   print_matrix("A x B = C", matrix_c, row_a, col_b);
